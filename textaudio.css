@@ -1,0 +1,29 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 10px ;
+    background-color: black;
+}
+#text{
+   width: 90%;
+   background-color: cyan;
+   height: 50%;
+   border-radius: 10px; 
+   border:3px solid cadetblue;
+   
+}
+#numbertext{
+    border:3px solid cadetblue;
+    border-radius: 7px;
+    height: 38px;
+    margin-right: 5px;
+}
+#Number{
+  color: aqua;
+}
+div{
+  width: 600px;
+  height: 300px;
+}
+#LowerAndUpper{
+  margin-top: 200px;
+}

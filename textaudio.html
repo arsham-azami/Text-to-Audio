@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI TEXT</title>
+    <!-- <script src="/TextToAudio.js" defer></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+     crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <link rel="stylesheet" href="/textaudio.css">
+    <script src="/textaudio.js"></script>
+</head>
+
+<body>
+
+   <textarea name="" id="text" cols="30" rows="10" ></textarea>
+   <label class="btn btn-success" for="Number">Audience Speed</label>
+   <input id="numbertext" type="number" min="1" max="5" value="1" step=".5"> 
+   <button class='btn btn-danger'id="play" onclick="playtext(TextArea.value)"><i class="fa fa-play"></i></button>
+   <button class='btn btn-primary' id="pause"><i class="fa fa-pause"></i></button>
+   <button class='btn btn-warning' id="stop"><i class="fa fa-stop"></i></button>
+   <button class='btn btn-success' onclick="ClearText(TextArea)"><i class="fa fa-trash"></i></button>
+   <div class="LowerAndUpper , btn-group-sm">
+       <button class="btn btn-primary -sm " id="Lower" onclick="LowerCase()">Lower</button>
+       <button class="btn btn-primary" id="Upper" onclick="UpperCase()">Upper</button>
+   </div> 
+   <script>
+       
+        const PauseText = document.getElementById('pause')
+        const StopText = document.getElementById('stop')
+        const TextArea = document.getElementById('text')
+        const SpeechNumber=document.getElementById('numbertext')
+        
+        const playtext =(text)=>{
+                               
+            const speech = new SpeechSynthesisUtterance(text)
+            speech.rate = SpeechNumber.value || 1
+            speech.addEventListener('end', ()=>{
+                TextArea.disabled = false
+            })
+            
+            TextArea.disabled = true 
+            speechSynthesis.speak(speech)       
+        
+            }
+
+        const ClearText=(textpar)=>{
+        textpar.value =''
+        }
+        const LowerCase = ()=>{
+          TextArea.style.textTransform ='lowercase' 
+        }
+        const UpperCase = ()=>{
+          TextArea.style.textTransform ='uppercase' 
+        }
+
+        
+    </script>
+</body>
+</html>
